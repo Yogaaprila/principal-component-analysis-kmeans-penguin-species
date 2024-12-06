@@ -1,4 +1,6 @@
-# Principal Component Analysis (PCA) and K-Means Algorithm With Python
+# Principal Component Analysis (PCA) and K-Means Algorithm in Python
+
+![Alt text](picture/dataset-cover.jpg)
 
 ## Goal
 The implementation of Principal Component Analysis (PCA) and K-Means using Python aims to help readers understand how to apply these techniques in practice.
