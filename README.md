@@ -119,6 +119,6 @@ after fit k-means model with four clusters, visualize with scatterplot
 ![Alt text](pictures/output_35_0.png)
 
 ## Conclusion 
-1. By using PCA, the original dataset with 5 features is reduced to 2 features while retaining approximately 86% of the original information, which can significantly speed up computation.
+1. By using PCA, the dataset with 6 features is reduced to 2 features while retaining approximately 86% of the original information, which can significantly speed up computation.
 2. The PCA results are then implemented with K-Means to create a cluster column, which is subsequently evaluated using the Silhouette Score.
 3. If further analysis of each cluster is needed, the cluster column resulting from PCA and K-Means can be added back to the original dataset to gain deeper insights into the characteristics of each cluster.
