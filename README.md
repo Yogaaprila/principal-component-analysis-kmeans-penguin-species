@@ -76,11 +76,49 @@ there are 7 missing rows in `sex` column so we drop it.
 after implement one hot encoding technique, we split `sex` column into two new columns, `sex_MALE` and `sex_FEMALE`
 
 ## Standardization
+Standardization is used to standardize features by removing the mean and scaling to unit variance. It is an essential preprocessing step in machine learning to ensure that all features contribute equally to the model and are on a comparable scale. Many machine learning algorithms (e.g., SVM, K-Means, PCA) are sensitive to the scale of data. Standardizing ensures that no feature dominates due to its larger magnitude. The transformed data will have a mean of 0 and a standard deviation of 1 for each feature.
+
+| Feature              | Count | Mean            | Std Dev  | Min       | 25%       | 50%       | 75%       | Max       |
+|----------------------|-------|-----------------|----------|-----------|-----------|-----------|-----------|-----------|
+| culmen_length_mm     | 332.0 | -4.708416e-16   | 1.001509 | -2.189667 | -0.830434 | 0.124703  | 0.845648  | 2.861539  |
+| culmen_depth_mm      | 332.0 | 1.284113e-16    | 1.001509 | -2.070694 | -0.793438 | 0.075096  | 0.790360  | 2.220887  |
+| flipper_length_mm    | 332.0 | 7.276642e-16    | 1.001509 | -2.067519 | -0.783164 | -0.283693 | 0.857956  | 2.142311  |
+| body_mass_g          | 332.0 | 4.280378e-17    | 1.001509 | -1.871059 | -0.815350 | -0.225395 | 0.713876  | 2.600180  |
+| sex_FEMALE           | 332.0 | 1.391123e-16    | 1.001509 | -0.993994 | -0.993994 | -0.993994 | 1.006042  | 1.006042  |
+| sex_MALE             | 332.0 | -1.391123e-16   | 1.001509 | -1.006042 | -1.006042 | 0.993994  | 0.993994  | 0.993994  |
+
 
 ## Principal Component Analysis (PCA) 
+```python
+pca = PCA(n_components=2)  # for example, selecting 2 principal components
+principal_components = pca.fit_transform(data_scaled)  # fit the data using PCA
+df_pca = pd.DataFrame(data=principal_components, columns=['PC1', 'PC2'])  # convert to dataframe
+```
 
+for example, we are using two principal component named **PC1** and **PC2**. we will see total Explained Variance Ration and total explained variance :
+ 
+**Explained Variance Ratio**:  
+- Component 1: 0.52034062  
+- Component 2: 0.34463112  
+
+**Total Explained Variance**:  
+- 0.8649717341499124
+
+The first two principal components capture the majority of the variance (86.50%) in the data, which indicates that these components retain most of the information in the original dataset.
+
+![Alt text](pictures/output_29_0.png)
 
 ## K-Means
+![Alt text](pictures/output_31_0.png)
 
+Based on silhoutte score, four clusters give best silhoutte score.
 
 ## Cluster Visualization
+after fit k-means model with four clusters, visualize with scatterplot
+
+![Alt text](pictures/output_35_0.png)
+
+## Conclusion 
+1. By using PCA, the original dataset with 5 features is reduced to 2 features while retaining approximately 86% of the original information, which can significantly speed up computation.
+2. The PCA results are then implemented with K-Means to create a cluster column, which is subsequently evaluated using the Silhouette Score.
+3. If further analysis of each cluster is needed, the cluster column resulting from PCA and K-Means can be added back to the original dataset to gain deeper insights into the characteristics of each cluster.
