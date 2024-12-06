@@ -1,6 +1,6 @@
 # Principal Component Analysis (PCA) and K-Means Algorithm in Python
 
-![Alt text](picture/dataset-cover.jpg)
+![Alt text](pictures/dataset-cover.jpg)
 
 ## Goal
 The implementation of Principal Component Analysis (PCA) and K-Means using Python aims to help readers understand how to apply these techniques in practice.
@@ -38,13 +38,49 @@ The implementation of Principal Component Analysis (PCA) and K-Means using Pytho
 - **LinkedIn:** [Yoga Aprila](https://www.linkedin.com/in/yoga-aprila/)
 
 ## Data Preprocessing 
+### 1. Outlier
+![Alt text](pictures/output_9_1.png)
+
+There are outliers in `flipper_length_mm' column so decided to remove the outliers.
+
+### 2. Anomalies
+| Sex    | Count |
+|--------|-------|
+| MALE   | 167   |
+| FEMALE | 165   |
+| .      | 1     |
+
+Drop '.' in `sex` column.
+
+### 3. Missing Value
+| Feature Name         | Missing Values |
+|----------------------|----------------|
+| culmen_length_mm     | 0              |
+| culmen_depth_mm      | 0              |
+| flipper_length_mm    | 0              |
+| body_mass_g          | 0              |
+| sex                  | 7              |
+
+there are 7 missing rows in `sex` column so we drop it.
+
+
+## Feature Encoding
+| Index | culmen_length_mm | culmen_depth_mm | flipper_length_mm | body_mass_g | sex_FEMALE | sex_MALE |
+|-------|------------------|-----------------|-------------------|-------------|------------|----------|
+| 0     | 39.1             | 18.7            | 181.0             | 3750.0      | 0          | 1        |
+| 1     | 39.5             | 17.4            | 186.0             | 3800.0      | 1          | 0        |
+| 2     | 40.3             | 18.0            | 195.0             | 3250.0      | 1          | 0        |
+| 4     | 36.7             | 19.3            | 193.0             | 3450.0      | 1          | 0        |
+| 5     | 39.3             | 20.6            | 190.0             | 3650.0      | 0          | 1        |
+
+after implement one hot encoding technique, we split `sex` column into two new columns, `sex_MALE` and `sex_FEMALE`
 
 ## Standardization
 
 ## Principal Component Analysis (PCA) 
 
 
-# K-Means
+## K-Means
 
 
 ## Cluster Visualization
