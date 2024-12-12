@@ -9,11 +9,11 @@ The implementation of Principal Component Analysis (PCA) and K-Means using Pytho
 1. **Understanding the Dataset**: Read the dataset using Python and perform initial exploration such as checking dimensions, feature types, and value distributions.  
 2. **Data Preprocessing**: Check for null values, anomalies, outliers, and perform feature encoding for categorical variables to ensure the data is ready for processing.  
 3. **Feature Scaling**: Standardize the data using Z-Score Normalization to ensure feature values are on the same scale.  
-4. **Principal Component Analysis (PCA)**: Apply PCA to reduce the dataset's dimensionality and select the number of principal components based on the explained variance ratio.  
-5. **K-Means Clustering**: Use the PCA results to fit the K-Means model with the optimal number of clusters and generate the cluster column.
-6. **Elbow Method** : Use elbow method to determine optimal cluster for modeliing with K-Means.
-7. **Model Evaluation**: Evaluate the clustering results using the Silhouette Score to assess the clustering quality.  
-8. **Result Visualization**: Visualize the clustering results with scatter plots to observe patterns and cluster separations.  
+4. **Principal Component Analysis (PCA)**: Apply PCA to reduce the dataset's dimensionality and select the number of principal components based on the explained variance ratio.
+5. **Elbow Method** : Use PCA Result to elbow method to determine optimal cluster for modeliing with K-Means.
+6. **K-Means Clustering**: Use the PCA results to fit the K-Means model with the optimal number of clusters which obtained by Elbow Method and generate the cluster column.
+8. **Model Evaluation**: Evaluate the clustering results using the Silhouette Score to assess the clustering quality.  
+9. **Result Visualization**: Visualize the clustering results with scatter plots to observe patterns and cluster separations.  
 
 ## Dataset [Click Here](https://www.kaggle.com/datasets/youssefaboelwafa/clustering-penguins-species)
 | Feature Name         | Description                                                                 |
