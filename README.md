@@ -88,17 +88,11 @@ Standardization is used to standardize features by removing the mean and scaling
 
 
 ## Principal Component Analysis (PCA) 
-```python
-pca = PCA(n_components=2)  # for example, selecting 2 principal components
-principal_components = pca.fit_transform(data_scaled)  # fit the data using PCA
-df_pca = pd.DataFrame(data=principal_components, columns=['PC1', 'PC2'])  # convert to dataframe
-```
-
 for example, we are using two principal component named **PC1** and **PC2**. we will see total Explained Variance Ration and total explained variance :
- 
+
 **Explained Variance Ratio**:  
-- Component 1: 0.52034062  
-- Component 2: 0.34463112  
+- Component 1 (PC1): 0.52034062  
+- Component 2 (PC2): 0.34463112  
 
 **Total Explained Variance**:  
 - 0.8649717341499124
@@ -108,10 +102,13 @@ The first two principal components capture the majority of the variance (86.50%)
 ![Alt text](pictures/output_29_0.png)
 
 ## Elbow Method
+![Alt text](pictures/output_32_0.png)
 
+Based on the results of the elbow method, it is evident that the optimal number of clusters is four. lets fit model with four clusters.
 
-## K-Means
+## Silhouette Score of K-Means
 ![Alt text](pictures/output_31_0.png)
+
 Based on silhoutte score, four clusters give best silhoutte score.
 
 ## Cluster Visualization
