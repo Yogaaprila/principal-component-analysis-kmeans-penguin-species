@@ -10,9 +10,10 @@ The implementation of Principal Component Analysis (PCA) and K-Means using Pytho
 2. **Data Preprocessing**: Check for null values, anomalies, outliers, and perform feature encoding for categorical variables to ensure the data is ready for processing.  
 3. **Feature Scaling**: Standardize the data using Z-Score Normalization to ensure feature values are on the same scale.  
 4. **Principal Component Analysis (PCA)**: Apply PCA to reduce the dataset's dimensionality and select the number of principal components based on the explained variance ratio.  
-5. **K-Means Clustering**: Use the PCA results to fit the K-Means model with the optimal number of clusters and generate the cluster column.  
-6. **Model Evaluation**: Evaluate the clustering results using the Silhouette Score or other metrics to assess the clustering quality.  
-7. **Result Visualization**: Visualize the clustering results using 2D or 3D scatter plots to observe patterns and cluster separations.  
+5. **K-Means Clustering**: Use the PCA results to fit the K-Means model with the optimal number of clusters and generate the cluster column.
+6. **Elbow Method** : Use elbow method to determine optimal cluster for modeliing with K-Means.
+7. **Model Evaluation**: Evaluate the clustering results using the Silhouette Score to assess the clustering quality.  
+8. **Result Visualization**: Visualize the clustering results with scatter plots to observe patterns and cluster separations.  
 
 ## Dataset [Click Here](https://www.kaggle.com/datasets/youssefaboelwafa/clustering-penguins-species)
 | Feature Name         | Description                                                                 |
@@ -33,7 +34,6 @@ The implementation of Principal Component Analysis (PCA) and K-Means using Pytho
 2. Python Programming Language
 
 ## Contact Information
-- **Name:** Yoga Aprila
 - **Email:** [yogaapril0504@gmail.com](mailto:yogaapril0504@gmail.com)
 - **LinkedIn:** [Yoga Aprila](https://www.linkedin.com/in/yoga-aprila/)
 
@@ -61,10 +61,9 @@ Drop '.' in `sex` column.
 | body_mass_g          | 0              |
 | sex                  | 7              |
 
-there are 7 missing rows in `sex` column so we drop it.
+The sex column contains 7 missing rows, leading to its removal.
 
-
-## Feature Encoding
+### 4. Feature Encoding
 | Index | culmen_length_mm | culmen_depth_mm | flipper_length_mm | body_mass_g | sex_FEMALE | sex_MALE |
 |-------|------------------|-----------------|-------------------|-------------|------------|----------|
 | 0     | 39.1             | 18.7            | 181.0             | 3750.0      | 0          | 1        |
@@ -73,7 +72,7 @@ there are 7 missing rows in `sex` column so we drop it.
 | 4     | 36.7             | 19.3            | 193.0             | 3450.0      | 1          | 0        |
 | 5     | 39.3             | 20.6            | 190.0             | 3650.0      | 0          | 1        |
 
-after implement one hot encoding technique, we split `sex` column into two new columns, `sex_MALE` and `sex_FEMALE`
+The 'sex' column will undergo one-hot encoding, creating sex_MALE and sex_FEMALE columns.
 
 ## Standardization
 Standardization is used to standardize features by removing the mean and scaling to unit variance. It is an essential preprocessing step in machine learning to ensure that all features contribute equally to the model and are on a comparable scale. Many machine learning algorithms (e.g., SVM, K-Means, PCA) are sensitive to the scale of data. Standardizing ensures that no feature dominates due to its larger magnitude. The transformed data will have a mean of 0 and a standard deviation of 1 for each feature.
@@ -108,14 +107,14 @@ The first two principal components capture the majority of the variance (86.50%)
 
 ![Alt text](pictures/output_29_0.png)
 
+## Elbow Method
+
+
 ## K-Means
 ![Alt text](pictures/output_31_0.png)
-
 Based on silhoutte score, four clusters give best silhoutte score.
 
 ## Cluster Visualization
-after fit k-means model with four clusters, visualize with scatterplot
-
 ![Alt text](pictures/output_35_0.png)
 
 ## Conclusion 
